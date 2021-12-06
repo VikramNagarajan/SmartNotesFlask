@@ -7,9 +7,10 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'iiM4i0EopGfsoSryTt8RpT8P4P11vNnf'
+app.config['SECRET_KEY'] = os.urandom(12)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 UPLOAD_FOLDER = 'C:\\owner\\Desktop\\test\\uploadfiles'
 ALLOWED_EXTENSIONS = {'pdf'}
